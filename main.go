@@ -14,7 +14,7 @@ func initializeRouter() {
 	r.HandleFunc("/listing_alert", FetchNewListing).Methods( "POST")
 
 	log.Fatal(http.ListenAndServe("0.0.0.0:1000", r))
-	log.Println("Running server on port 9000")
+	log.Println("Running server on port 1000")
 }
 
 func main(){
