@@ -1,6 +1,6 @@
 # *Go Crypto!*
 
-Docker container to experiment with Webhooks in CryptoCurrency alert and TradingView.
+Docker container to experiment with Webhooks from CryptoCurrency alert and TradingView.
 
 
 ![](logo.png)
