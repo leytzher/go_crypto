@@ -2,14 +2,11 @@ package main
 
 import (
 	"github.com/gorilla/mux"
-	"gorm.io/gorm"
 	"log"
 	"net/http"
 )
 
 
-var DB *gorm.DB
-var err error
 
 func initializeRouter() {
 	r := mux.NewRouter()
