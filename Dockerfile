@@ -7,6 +7,10 @@ COPY . .
 # Obtain the package needed to run code. Alternative we can use GO modules.
 RUN go get -u github.com/lib/pq
 RUN go get -u github.com/gorilla/mux
+RUN go get -u gorm.io/gorm
+RUN go get -u gorm.io/driver/postgres
+RUN go get -u github.com/joho/godotenv
+
 # Compile the binary exe for out app.
 RUN go build -o main .
 # start the application

@@ -5,18 +5,12 @@ import (
 	"net/http"
 )
 
-type CoinListing struct {
-	Type     string `json:"type"`
-	Message  string `json:"message"`
-	Currency string `json:"currency"`
-	Exchange string `json:"exchange"`
-}
 
-func FetchNewListing (w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type","application/json")
-	var listing CoinListing
-	json.NewDecoder(r.Body).Decode(&listing)
-	json.NewEncoder(w).Encode(listing)
+func GetListings(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	var listings []CoinListing
+	DB.Find(&listings)
+	json.NewEncoder(w).Encode(listings)
 }
 
 func Hello(w http.ResponseWriter, r *http.Request){
@@ -26,5 +20,13 @@ func Hello(w http.ResponseWriter, r *http.Request){
 		Currency: "NONE",
 		Exchange: "NONE",
 	}
+	json.NewEncoder(w).Encode(listing)
+}
+
+func CreateListing(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	var listing CoinListing
+	json.NewDecoder(r.Body).Decode(&listing)
+	DB.Create(&listing)
 	json.NewEncoder(w).Encode(listing)
 }
