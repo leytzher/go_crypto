@@ -31,8 +31,8 @@ func InitialMigration(){
 	passwd := os.Getenv("POSTGRES_PASSWORD")
 	db := os.Getenv("POSTGRES_DB")
 	host := os.Getenv("POSTGRES_HOST")
-	const dns = fmt.Sprintf("%s:%s@tcp(%s:5432)/godb?charset=utf8mb4&parseTime=True&loc=Local",user,passwd,host)
-	//dns := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Asia/Shanghai", host,user, passwd, db)
+	dns := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Asia/Shanghai", host,user, passwd, db)
+	fmt.Println(dns)
 	DB, err := gorm.Open(postgres.Open(dns), &gorm.Config{})
 
 	if err != nil {
