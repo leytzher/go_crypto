@@ -22,6 +22,9 @@ type CoinListing struct {
 }
 
 func InitialMigration(){
+	var DB *gorm.DB
+	var err error
+
 	errs:= godotenv.Load()
 	if errs != nil {
 		log.Fatal("Error loading .env file")
